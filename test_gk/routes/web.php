@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 Route::get('/login',[LoginController::class,'index'])->name('login.index');
-Route::post('/login',[LoginController::class,'login'])->name('login');
+Route::post('/login',[LoginController::class,'login'])->name('login')->middleware('login');
 Route::get('/register',[RegisterController::class,'index'])->name('register.index');
 Route::post('/register',[RegisterController::class,'register'])->name('register');
 Route::resource('users', UsersController::class)->middleware('users.auth');
